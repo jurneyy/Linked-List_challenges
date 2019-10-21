@@ -17,14 +17,6 @@ def print_values(list_node)
   end
 end
 
-
-node1 = LinkedListNode.new(37)
-node2 = LinkedListNode.new(99, node1)
-node3 = LinkedListNode.new(12, node2)
-node1.next_node = node3
-
-
-
 def cycle_detection_recursive(list)
   slow = list
   fast = list 
@@ -58,6 +50,12 @@ def cycle_detection(list)
   end 
   return false
 end 
+
+
+node1 = LinkedListNode.new(37)
+node2 = LinkedListNode.new(99, node1)
+node3 = LinkedListNode.new(12, node2)
+node1.next_node = node3
 
 
 puts cycle_detection(node3)
