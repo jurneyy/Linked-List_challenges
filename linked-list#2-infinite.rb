@@ -8,39 +8,66 @@ class LinkedListNode
 end
 
 def print_values(list_node)
-  if list_node
-    print "#{list_node.value} --> "
-    print_values(list_node.next_node)
-  else
+  if not list_node
     print "nil\n"
     return
+  else
+    print "#{list_node.value} --> "
+    print_values(list_node.next_node)
   end
 end
+
 
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
-#node1.next_node = node3
+node1.next_node = node3
 
+
+
+def cycle_detection_recursive(list)
+  slow = list
+  fast = list 
+
+  return recursive_detect(slow.next_node, fast.next_node.next_node)
+end 
+
+
+def recursive_detect(slow, fast)
+
+  if not fast.next_node 
+    return false
+  elsif fast == slow 
+    return true
+  else 
+    recursive_detect(slow.next_node, fast.next_node.next_node)
+  end
+end
 
 def cycle_detection(list)
-
-  if not list 
-    return true
-  end
 
   slow = list
   fast = list
 
-  while fast
-    if fast == slow
-      return false 
-    end 
+  while fast.next_node
     slow = slow.next_node
     fast = fast.next_node.next_node
+    if fast == slow
+      return true
+    end 
   end 
-
-  return true
+  return false
 end 
 
+
 puts cycle_detection(node3)
+
+puts cycle_detection_recursive(node3)
+
+
+
+
+
+
+
+
