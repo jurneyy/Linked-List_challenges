@@ -24,7 +24,6 @@ def cycle_detection_recursive(list)
   return recursive_detect(slow.next_node, fast.next_node.next_node)
 end 
 
-
 def recursive_detect(slow, fast)
 
   if not fast.next_node 
@@ -51,7 +50,6 @@ def cycle_detection(list)
   return false
 end 
 
-
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
@@ -59,13 +57,4 @@ node1.next_node = node3
 
 
 puts cycle_detection(node3)
-
 puts cycle_detection_recursive(node3)
-
-
-
-
-
-
-
-
