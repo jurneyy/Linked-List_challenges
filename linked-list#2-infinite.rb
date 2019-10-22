@@ -25,7 +25,6 @@ def cycle_detection_recursive(list)
 end 
 
 def recursive_detect(slow, fast)
-
   if not fast.next_node 
     return false
   elsif fast == slow 
@@ -36,7 +35,6 @@ def recursive_detect(slow, fast)
 end
 
 def cycle_detection(list)
-
   slow = list
   fast = list
 
